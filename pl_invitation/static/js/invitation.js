@@ -216,6 +216,17 @@ var invitation=(function(it,$){
         });
     };
 
+    function _audioAutoPlay(id){
+        var audio = document.getElementById(id);
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function() {
+            audio.play();
+        }, false);
+    }
+
     invitation.init=function(){
         var body_height = parseInt($("body").css("height"));
         var body_width=parseInt($("body").css("width"));
@@ -232,6 +243,7 @@ var invitation=(function(it,$){
         invitation.process_init();
         _setWx();
         _setNav();
+        _audioAutoPlay('bgsound');
     };
 
     return invitation;

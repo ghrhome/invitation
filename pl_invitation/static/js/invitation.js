@@ -198,12 +198,12 @@ var invitation=(function(it,$){
     }
 
     function _setNav(){
-        var center=new qq.maps.LatLng(31.15799,121.35676);
+        var center=new qq.maps.LatLng(31.157670,121.356900);
         var map = new qq.maps.Map(
             document.getElementById("qqnav"),
             {
                 center: center,
-                zoom: 15,
+                zoom: 16,
                 draggable: false,
                 scrollwheel: false,
                 disableDoubleClickZoom: false,

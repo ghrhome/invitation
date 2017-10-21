@@ -125,7 +125,8 @@ var invitation=(function(it,$){
 
 
     function _setWx(){
-        var curUrl=location.href.split("#")[0];
+        //var curUrl=location.href.split("#")[0];
+        var curUrl="http://www.powerlongmuseum.com/invitation/";
         var baseUrl='http://www.powerlongmuseum.com/artWeb/authLink/1/occ/getJsApiConfig1.htm';
 
         //这里接口要改下，不需要关注，只要拿到wxData就好了。
@@ -216,8 +217,21 @@ var invitation=(function(it,$){
         });
     };
 
+    var audio = document.getElementById("bgsound");
+    function _soundCtrl(){
+        $(".sound").on("click",function(e){
+
+            if($(this).hasClass('sound-play')){
+                $(this).removeClass("sound-play").addClass("sound-mute");
+                audio.muted = true;
+            }else{
+                $(this).removeClass("sound-mute").addClass("sound-play");
+                audio.muted = false;
+            }
+
+        });
+    }
     function _audioAutoPlay(id){
-        var audio = document.getElementById(id);
         audio.play();
         document.addEventListener("WeixinJSBridgeReady", function () {
             audio.play();
@@ -244,6 +258,7 @@ var invitation=(function(it,$){
         _setWx();
         _setNav();
         _audioAutoPlay('bgsound');
+        _soundCtrl();
     };
 
     return invitation;

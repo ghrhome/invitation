@@ -125,8 +125,8 @@ var invitation=(function(it,$){
 
 
     function _setWx(){
-        //var curUrl=location.href.split("#")[0];
-        var curUrl="http://www.powerlongmuseum.com/invitation/";
+        var curUrl= encodeURIComponent(location.href.split('#')[0]);
+        //var curUrl="http://www.powerlongmuseum.com/invitation/";
         var baseUrl='http://www.powerlongmuseum.com/artWeb/authLink/1/occ/getJsApiConfig1.htm';
 
         //这里接口要改下，不需要关注，只要拿到wxData就好了。
@@ -158,11 +158,11 @@ var invitation=(function(it,$){
         /*  if (process.env.NODE_ENV === 'production') {*/
 
         //3G2BZ-SAHCD-ZGJ4R-HVUQY-YQ2VZ-STBK2
-
+            var _Url=location.href.split("#")[0];
             wx.ready(function() {
                 wx.onMenuShareAppMessage({
                     title: '宝龙美术馆开幕邀请函', // 分享标题
-                    link: 'http://www.powerlongmuseum.com/invitation/', // 分享链接
+                    link: _Url, // 分享链接
                     desc: "诚邀莅临",
                     imgUrl: 'http://www.powerlongmuseum.com/invitation/static/images/plart_350.png', // 分享图标
                     success: function () {
@@ -175,7 +175,7 @@ var invitation=(function(it,$){
                 wx.onMenuShareTimeline({
                     title: '宝龙美术馆开幕邀请函', // 分享标题
                     desc: '诚邀莅临', // 分享描述
-                    link: 'http://www.powerlongmuseum.com/invitation/', // 分享链接
+                    link: _Url, // 分享链接
                     imgUrl: 'http://www.powerlongmuseum.com/invitation/static/images/plart_350.png', // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
